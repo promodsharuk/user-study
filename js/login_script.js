@@ -60,5 +60,5 @@ button.addEventListener("click", () => {
 function goToSecondPage(code) {
     // Redirect to the second page with the code as a URL parameter
     localStorage.setItem('code', code)
-    window.location.href = "login.html?code=" + encodeURIComponent(code);
+    window.location.href = "page.html?code=" + encodeURIComponent(code);
 }
