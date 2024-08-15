@@ -327,18 +327,16 @@ print(filtered_tensor.numpy())
 ```
 
 ### Related YouTube Tutorials
-[TensorFlow fundamentals: What are tensors in TensorFlow.js?](https://www.youtube.com/watch?v=WLtkPIrCs9Y)
+<a href="https://www.youtube.com/watch?v=WLtkPIrCs9Y" target="_blank">TensorFlow fundamentals: What are tensors in TensorFlow.js?</a>
 
-[Use TensorFlow reshape To Change The Shape Of A Tensor - TensorFlow Tutorial](https://www.youtube.com/watch?v=ukBG9ALd8T8)
+<a href="https://www.youtube.com/watch?v=ukBG9ALd8T8" target="_blank">Use TensorFlow reshape To Change The Shape Of A Tensor - TensorFlow Tutorial</a>
 
 
 ### Related Stack Overflow Posts
-[In Tensorflow, how to use tf.gather() for the last dimension?](https://stackoverflow.com/questions/36764791/in-tensorflow-how-to-use-tf-gather-for-the-last-dimension)
+<a href="https://stackoverflow.com/questions/36764791/in-tensorflow-how-to-use-tf-gather-for-the-last-dimension" target="_blank">In Tensorflow, how to use tf.gather() for the last dimension?</a>
 
-[Filter out non-zero values in a tensor](https://stackoverflow.com/questions/42194051/filter-out-non-zero-values-in-a-tensor)
+<a href="https://stackoverflow.com/questions/42194051/filter-out-non-zero-values-in-a-tensor" target="_blank">Filter out non-zero values in a tensor</a>
 
-[Tensorflow 2.0: Shape inference with Reshape returns None dimension](https://stackoverflow.com/questions/62092075/tensorflow-2-0-shape-inference-with-reshape-returns-none-dimension)
+<a href="https://stackoverflow.com/questions/62092075/tensorflow-2-0-shape-inference-with-reshape-returns-none-dimension" target="_blank">Tensorflow 2.0: Shape inference with Reshape returns None dimension</a>
 
-[Tensorflow reshape tensor](https://stackoverflow.com/questions/37868935/tensorflow-reshape-tensor)
-</div>
-
+<a href="https://stackoverflow.com/questions/37868935/tensorflow-reshape-tensor" target="_blank">Tensorflow reshape tensor</a>

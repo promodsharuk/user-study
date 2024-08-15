@@ -199,13 +199,13 @@ compute_and_apply_gradients()
 ```
 
 ### Related YouTube Tutorials
-[Gradient Clipping for Neural Networks | Deep Learning Fundamentals](https://www.youtube.com/watch?v=KrQp1TxTCUY)
+<a href="https://www.youtube.com/watch?v=KrQp1TxTCUY" target="_blank">Gradient Clipping for Neural Networks | Deep Learning Fundamentals</a>
 
 
 ### Related Stack Overflow Posts
-[How to apply gradient clipping in TensorFlow?](https://stackoverflow.com/questions/36498127/how-to-apply-gradient-clipping-in-tensorflow)
+<a href="https://stackoverflow.com/questions/36498127/how-to-apply-gradient-clipping-in-tensorflow" target="_blank">How to apply gradient clipping in TensorFlow?</a>
 
-[How to handle None in tf.clip_by_global_norm?](https://stackoverflow.com/questions/49987839/how-to-handle-none-in-tf-clip-by-global-norm)
+<a href="https://stackoverflow.com/questions/49987839/how-to-handle-none-in-tf-clip-by-global-norm" target="_blank">How to handle None in tf.clip_by_global_norm?</a>
 
 </div>
 

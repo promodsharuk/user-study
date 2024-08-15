@@ -258,18 +258,18 @@ print(output_data)
 ```
 
 ### Related YouTube Tutorials
-[Python Tutorial: Keras input and dense layers](https://www.youtube.com/watch?v=oJ1i2c1KxKk)
+<a href="https://www.youtube.com/watch?v=oJ1i2c1KxKk" target="_blank">Python Tutorial: Keras input and dense layers</a>
 
-[[TensorFlow 2 Deep Learning] Dense Layer](https://www.youtube.com/watch?v=lor2LnEVn8M)
+<a href="https://www.youtube.com/watch?v=lor2LnEVn8M" target="_blank">[TensorFlow 2 Deep Learning] Dense Layer</a>
 
-[Sequential Model, Dense Layer, and Model Compile in Keras Deep Learning](https://www.youtube.com/watch?v=kyktbJpg2mU)
+<a href="https://www.youtube.com/watch?v=kyktbJpg2mU" target="_blank">[Sequential Model, Dense Layer, and Model Compile in Keras Deep Learning</a>
 
 
 ### Related Stack Overflow Posts
-[How can I understand the kernel of tf.keras.layers.Dense for rank >2?](https://stackoverflow.com/questions/68984841/how-can-i-understand-the-kernel-of-tf-keras-layers-dense-for-rank-2)
+<a href="https://stackoverflow.com/questions/68984841/how-can-i-understand-the-kernel-of-tf-keras-layers-dense-for-rank-2" target="_blank">How can I understand the kernel of tf.keras.layers.Dense for rank >2</a>
 
-[Keras Dense layer's input is not flattened](https://stackoverflow.com/questions/52089601/keras-dense-layers-input-is-not-flattened)
+<a href="https://stackoverflow.com/questions/52089601/keras-dense-layers-input-is-not-flattened" target="_blank">Keras Dense layer's input is not flattened</a>
 
-[How to make a Keras Dense Layer deal with 3D tensor as input for this Softmax Fully Connected Layer?](https://stackoverflow.com/questions/63507023/how-to-make-a-keras-dense-layer-deal-with-3d-tensor-as-input-for-this-softmax-fu)
+<a href="https://stackoverflow.com/questions/63507023/how-to-make-a-keras-dense-layer-deal-with-3d-tensor-as-input-for-this-softmax-fu" target="_blank">How to make a Keras Dense Layer deal with 3D tensor as input for this Softmax Fully Connected Layer?</a>
 
 </div>
