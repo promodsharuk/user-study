@@ -40,7 +40,7 @@
                         <zero-md id="doc1"></zero-md>
                     </div>
                     <div class="border rounded-md p-8 hidden" id="container-1-tab-2">
-                        <zero-md id="doc1-cust" src="docs/tf.while_loop.md"></zero-md>
+                        <zero-md id="doc1-cust"></zero-md>
                     </div>
                 </div>
             </div>
@@ -127,18 +127,18 @@
     const code = localStorage.getItem('code');
 
     const docs = {
-        "0001": ["tf.while_loop.md", "tf.map_fn.md", "tf.pad.md", "tf.map_fn.md", "tf.pad.md"],
-        "0002": ["tf.map_fn.md", "tf.pad.md", "tf.while_loop.md", "tf.map_fn.md", "tf.pad.md"],
-        "0003": ["tf.pad.md", "tf.while_loop.md", "tf.map_fn.md", "tf.map_fn.md", "tf.pad.md"]
+        "0001": ["tf.gather.md", "aug_tf.gather.md"],
+        "0002": ["tf.clip_by_global_norm.md", "aug_tf.clip_by_global_norm.md"],
+        "0003": ["tf.keras.layers.Dense.md", "aug_tf.keras.layers.Dense.md"],
     };
 
     const assignedDocs = docs[code] || []; //
 
     document.getElementById('doc1').setAttribute("src", "docs/".concat(assignedDocs[0]));
-    document.getElementById('doc2').setAttribute("src", "docs/".concat(assignedDocs[1]));
-    document.getElementById('doc3').setAttribute("src", "docs/".concat(assignedDocs[2]));
-    document.getElementById('doc4').setAttribute("src", "docs/".concat(assignedDocs[3]));
-    document.getElementById('doc5').setAttribute("src", "docs/".concat(assignedDocs[4]));
+    document.getElementById('doc1-cust').setAttribute("src", "docs/".concat(assignedDocs[1]));
+    // document.getElementById('doc3').setAttribute("src", "docs/".concat(assignedDocs[2]));
+    // document.getElementById('doc4').setAttribute("src", "docs/".concat(assignedDocs[3]));
+    // document.getElementById('doc5').setAttribute("src", "docs/".concat(assignedDocs[4]));
 
     let heading = document.querySelector("h2.name.text-center");
     heading.textContent = assignedDocs[0];
