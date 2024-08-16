@@ -94,3 +94,10 @@ button.active {
 button:hover {
     background: #0e4bf1;
 }
+
+.error-message {
+    display: none; /* Hidden by default */
+    color: red;
+    margin: 10px 0;
+    text-align: center;
+}

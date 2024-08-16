@@ -1,8 +1,71 @@
+const validCodes = {
+  "0001": ["tf.gather.md", "aug_tf.gather.md"],
+  "0002": ["tf.clip_by_global_norm.md", "aug_tf.clip_by_global_norm.md"],
+  "0003": ["tf.keras.layers.Dense.md", "aug_tf.keras.layers.Dense.md"],
+};
+
+
+
 const inputs = document.querySelectorAll(".code-input");
-const button = document.querySelector("button");
+const button = document.querySelector("#proceed-btn");
+
+const urlParams = new URLSearchParams(window.location.search);
+const errorMessage = urlParams.get('error');
+
+if (errorMessage) {
+  displayErrorMessage("The code you entered is incorrect. Please try again.")
+}
+
+
+// Function to display error message
+function displayErrorMessage(message) {
+  // Create or select an error message element
+  let errorMessage = document.querySelector('.error-message');
+  if (!errorMessage) {
+      errorMessage = document.createElement('div');
+      errorMessage.classList.add('error-message');
+      document.body.appendChild(errorMessage);
+  }
+  errorMessage.textContent = message;
+
+  // Add styling to the error message
+  errorMessage.style.display = "block";
+
+  // Hide the error message after 3 seconds
+  setTimeout(() => {
+      errorMessage.style.display = "none";
+  }, 3000);
+
+}
+
+// Function to restrict input to numeric values
+function restrictToNumericInput(event) {
+  const input = event.target;
+  const newValue = input.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+  if (input.value !== newValue) {
+    input.value = newValue;
+  }
+}
+
+
+// Function to handle code validation
+function handleCodeValidation() {
+  const code = Array.from(inputs).map((input) => input.value).join("");
+
+  if (validCodes.hasOwnProperty(code)) {
+      // If the code is valid, proceed to the main page
+      goToSecondPage(code);
+  } else {
+      // If the code is invalid, show an error message
+      displayErrorMessage("The code you entered is incorrect. Please try again.");
+  }
+}
 
 // iterate over all inputs
 inputs.forEach((input, index1) => {
+
+    input.addEventListener("input", restrictToNumericInput);
+
     input.addEventListener("keyup", (e) => {
         // This code gets the current input element and stores it in the currentInput variable
         // This code gets the next sibling element of the current input element and stores it in the nextInput variable
@@ -34,6 +97,11 @@ inputs.forEach((input, index1) => {
             }
           });
         }
+
+        if (e.key === "Enter" && !inputs[3].disabled && inputs[3].value !== "") {
+            handleCodeValidation();
+        }
+
         //if the fourth input( which index number is 3) is not empty and has not disable attribute then
         //add active class if not then remove the active class.
         if (!inputs[3].disabled && inputs[3].value !== "") {
@@ -47,14 +115,8 @@ inputs.forEach((input, index1) => {
 //focus the first input which index is 0 on window load
 window.addEventListener("load", () => inputs[0].focus());
 
-// Add event listener to the button
-button.addEventListener("click", () => {
-    // Get the code from the fourth input
-    const code = Array.from(inputs).map((input) => input.value).join("")
-    console.log("Code: ", code)
-    // Call goToSecondPage function with the code as a parameter
-    goToSecondPage(code);
-});
+// Add click event listener to the button
+button.addEventListener("click", handleCodeValidation);
 
 // Define the goToSecondPage function
 function goToSecondPage(code) {

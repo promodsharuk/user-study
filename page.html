@@ -126,7 +126,9 @@
 </body>
 
 <script>
-    const code = localStorage.getItem('code');
+    // const code = localStorage.getItem('code');
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
 
     const docs = {
         "0001": ["tf.gather.md", "aug_tf.gather.md"],
@@ -134,16 +136,45 @@
         "0003": ["tf.keras.layers.Dense.md", "aug_tf.keras.layers.Dense.md"],
     };
 
-    const assignedDocs = docs[code] || []; //
+    
 
-    document.getElementById('doc1').setAttribute("src", "docs/".concat(assignedDocs[0]));
-    document.getElementById('doc1-cust').setAttribute("src", "docs/".concat(assignedDocs[1]));
+    function loadContentBasedOnCode(code, docs) {
+        const assignedDocs = docs[code] || [];
+        
+        // Continue with your existing logic to load the documents
+        document.getElementById('doc1').setAttribute("src", "docs/".concat(assignedDocs[0]));
+        document.getElementById('doc1-cust').setAttribute("src", "docs/".concat(assignedDocs[1]));
+        document.querySelector("h2.name.text-center").textContent = assignedDocs[0];
+    }
+
+    // loadContentBasedOnCode(code, docs);
+
+    if (docs.hasOwnProperty(code)) {
+        // Store valid code in localStorage
+        localStorage.setItem('code', code);
+
+        // Load documents and content
+        loadContentBasedOnCode(code, docs);
+        
+    } else {
+        // Define the error message
+        const errorMessage = "The code you entered is incorrect. Please try again.";
+
+        // Redirect to the verification page with the error message
+        const errorParam = `?error=${encodeURIComponent(errorMessage)}`;
+        window.location.href = "index.html" + errorParam;
+    }
+
+    // const assignedDocs = docs[code] || []; //
+
+    // document.getElementById('doc1').setAttribute("src", "docs/".concat(assignedDocs[0]));
+    // document.getElementById('doc1-cust').setAttribute("src", "docs/".concat(assignedDocs[1]));
     // document.getElementById('doc3').setAttribute("src", "docs/".concat(assignedDocs[2]));
     // document.getElementById('doc4').setAttribute("src", "docs/".concat(assignedDocs[3]));
     // document.getElementById('doc5').setAttribute("src", "docs/".concat(assignedDocs[4]));
 
-    let heading = document.querySelector("h2.name.text-center");
-    heading.textContent = assignedDocs[0];
+    // let heading = document.querySelector("h2.name.text-center");
+    // heading.textContent = assignedDocs[0];
 
     let link = document.getElementsByClassName("link")
     let containerItems = document.getElementsByClassName("container-item");
@@ -199,82 +230,82 @@
 
     }
 
-    function backBtn() {
-        if (currentValue > 1) {
-            for (l of link) {
-                l.classList.remove("active");
-            }
-            currentValue--;
-            link[currentValue - 1].classList.add("active");
+    // function backBtn() {
+    //     if (currentValue > 1) {
+    //         for (l of link) {
+    //             l.classList.remove("active");
+    //         }
+    //         currentValue--;
+    //         link[currentValue - 1].classList.add("active");
 
-            if (currentValue === 1) {
-                heading.textContent = assignedDocs[0];
-            }
-            else if (currentValue === 2) {
-                heading.textContent = assignedDocs[1];
-            }
-            else if (currentValue === 3) {
-                heading.textContent = assignedDocs[2];
-            }
-            else if (currentValue === 4) {
-                heading.textContent = assignedDocs[3];
-            }
-            else {
-                heading.textContent = assignedDocs[4];
-            }
-
-
-            // Hide all containers and show the one corresponding to currentContainer
-            for (const item of containerItems) {
-                item.classList.add("hidden");
-            }
-            containerItems[currentValue - 1].classList.remove("hidden");
-
-            const currentContainerContent = containerItems[currentValue - 1].querySelector(".overflow-auto");
-            currentContainerContent.querySelectorAll(".border.rounded-md.p-4").forEach(tab => tab.classList.add("hidden"));
-            const firstTab = currentContainerContent.querySelector("[id*='tab-1']");
-            firstTab.classList.remove("hidden");
-        }
-    }
-
-    function nextBtn() {
-        if (currentValue < 5) {
-            for (l of link) {
-                l.classList.remove("active");
-            }
-            currentValue++;
-            link[currentValue - 1].classList.add("active");
-
-            if (currentValue === 1) {
-                heading.textContent = assignedDocs[0];
-            }
-            else if (currentValue === 2) {
-                heading.textContent = assignedDocs[1];
-            }
-            else if (currentValue === 3) {
-                heading.textContent = assignedDocs[2];
-            }
-            else if (currentValue === 4) {
-                heading.textContent = assignedDocs[3];
-            }
-            else {
-                heading.textContent = assignedDocs[4];
-            }
-
-            // Hide all containers and show the one corresponding to currentContainer
-            for (const item of containerItems) {
-                item.classList.add("hidden");
-            }
-            containerItems[currentValue - 1].classList.remove("hidden");
-
-            const currentContainerContent = containerItems[currentValue - 1].querySelector(".overflow-auto");
-            currentContainerContent.querySelectorAll(".border.rounded-md.p-4").forEach(tab => tab.classList.add("hidden"));
-            const firstTab = currentContainerContent.querySelector("[id*='tab-1']");
-            firstTab.classList.remove("hidden");
+    //         if (currentValue === 1) {
+    //             heading.textContent = assignedDocs[0];
+    //         }
+    //         else if (currentValue === 2) {
+    //             heading.textContent = assignedDocs[1];
+    //         }
+    //         else if (currentValue === 3) {
+    //             heading.textContent = assignedDocs[2];
+    //         }
+    //         else if (currentValue === 4) {
+    //             heading.textContent = assignedDocs[3];
+    //         }
+    //         else {
+    //             heading.textContent = assignedDocs[4];
+    //         }
 
 
-        }
-    }
+    //         // Hide all containers and show the one corresponding to currentContainer
+    //         for (const item of containerItems) {
+    //             item.classList.add("hidden");
+    //         }
+    //         containerItems[currentValue - 1].classList.remove("hidden");
+
+    //         const currentContainerContent = containerItems[currentValue - 1].querySelector(".overflow-auto");
+    //         currentContainerContent.querySelectorAll(".border.rounded-md.p-4").forEach(tab => tab.classList.add("hidden"));
+    //         const firstTab = currentContainerContent.querySelector("[id*='tab-1']");
+    //         firstTab.classList.remove("hidden");
+    //     }
+    // }
+
+    // function nextBtn() {
+    //     if (currentValue < 5) {
+    //         for (l of link) {
+    //             l.classList.remove("active");
+    //         }
+    //         currentValue++;
+    //         link[currentValue - 1].classList.add("active");
+
+    //         if (currentValue === 1) {
+    //             heading.textContent = assignedDocs[0];
+    //         }
+    //         else if (currentValue === 2) {
+    //             heading.textContent = assignedDocs[1];
+    //         }
+    //         else if (currentValue === 3) {
+    //             heading.textContent = assignedDocs[2];
+    //         }
+    //         else if (currentValue === 4) {
+    //             heading.textContent = assignedDocs[3];
+    //         }
+    //         else {
+    //             heading.textContent = assignedDocs[4];
+    //         }
+
+    //         // Hide all containers and show the one corresponding to currentContainer
+    //         for (const item of containerItems) {
+    //             item.classList.add("hidden");
+    //         }
+    //         containerItems[currentValue - 1].classList.remove("hidden");
+
+    //         const currentContainerContent = containerItems[currentValue - 1].querySelector(".overflow-auto");
+    //         currentContainerContent.querySelectorAll(".border.rounded-md.p-4").forEach(tab => tab.classList.add("hidden"));
+    //         const firstTab = currentContainerContent.querySelector("[id*='tab-1']");
+    //         firstTab.classList.remove("hidden");
+
+
+    //     }
+    // }
 
     const tabs = document.querySelectorAll('ul li button');
     const tabContent1 = document.getElementById('tab-content-1').children;
