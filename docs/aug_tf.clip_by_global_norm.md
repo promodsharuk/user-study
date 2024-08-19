@@ -200,9 +200,9 @@ compute_and_apply_gradients()
 ```
 ### Related Stack Overflow Posts
 Additional information to obtain knowledge needed to address the [**issue**](#target) related to this API.
-<a href="https://stackoverflow.com/questions/36498127/how-to-apply-gradient-clipping-in-tensorflow" target="_blank">How to apply gradient clipping in TensorFlow?</a>
+- <a href="https://stackoverflow.com/questions/36498127/how-to-apply-gradient-clipping-in-tensorflow" target="_blank">How to apply gradient clipping in TensorFlow?</a>
 
-<a href="https://stackoverflow.com/questions/49987839/how-to-handle-none-in-tf-clip-by-global-norm" target="_blank">How to handle None in tf.clip_by_global_norm?</a>
+- <a href="https://stackoverflow.com/questions/49987839/how-to-handle-none-in-tf-clip-by-global-norm" target="_blank">How to handle None in tf.clip_by_global_norm?</a>
 
 ### Related YouTube Tutorials
 Video tutorials to learn concepts related to the [**issue**](#target) with this API.
