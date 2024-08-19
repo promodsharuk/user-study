@@ -1,5 +1,3 @@
-description: Gather slices from params axis axis according to indices. (deprecated arguments)
-
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.gather" />
 <meta itemprop="path" content="Stable" />

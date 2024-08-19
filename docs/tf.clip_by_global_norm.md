@@ -1,5 +1,3 @@
-description: Clips values of multiple tensors by the ratio of the sum of their norms.
-
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.clip_by_global_norm" />
 <meta itemprop="path" content="Stable" />

@@ -79,11 +79,30 @@ h2 {
     height: 50px;
     cursor: pointer;
     font-weight: 600;
+    border: 2px solid #000000; /* Border color */
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: border-color 0.3s, border-width 0.3s; /* Smooth transition for border color and width */
 
+}
+
+.tabs.clicked {
+    border-color: blue; /* Border color when clicked */
+    border-width: 3px; /* Border width when clicked */
+}
+
+.tabs:not(.clicked) {
+    border-width: 1px; /* Border width when not clicked */
+}
+
+/* Optional: Add hover effects */
+.tabs:hover {
+    border-color: blue; /* Darker border on hover */
 }
 
 .tab-header {
     justify-content: center;
+    gap: 10px; /* Adds space between the two buttons */
 }
 
 .container {
@@ -124,3 +143,6 @@ h2 {
     /* Set right column (iframe) to 40% width */
 }
 
+.light-blue-bg {
+    background-color: lightblue;
+}

@@ -1,5 +1,3 @@
-description: Gather slices from params axis axis according to indices. (deprecated arguments)
-
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.gather" />
 <meta itemprop="path" content="Stable" />
@@ -301,17 +299,21 @@ A `Tensor`. Has the same type as `params`.
 </table>
 </div>
 
-<div style="border: 1px solid #ccc; padding: 5px; float: right; width: 34%; margin-left: 5px;">
+<div style="border: 1px solid #ccc; padding: 5px; float: right; width: 34%; margin-left: 5px; background-color: #e6ffe6;">
   
-# Augmented Content
-### Question: Why does tf.gather return a tensor with shape [?, 0]?
+# What You Need to Know !
+<span id="target"></span>
+**Issue:** How to reshape a tensor from shape `[?, 0]` to `[?,]` when using `tf.gather`.
+
+### Explanation
 When working with TensorFlow, you may encounter a situation where a tensor has a shape of `[?, 0]` after using operations like `tf.gather` with `tf.where`. This shape indicates that the tensor has an unknown number of rows (`?`) and zero columns, which can be confusing and problematic for further processing.
 
 The issue arises because `tf.where` returns the indices of non-zero elements, and when used with `tf.gather`, it can result in a tensor with a shape that includes a dimension of size 0. This happens because the condition in `tf.where` might not find any non-zero elements, leading to an empty tensor along the specified dimension.
 
 To reshape the tensor from `[?, 0]` to `[?,]`, you need to understand that a dimension of size 0 means there are no elements along that dimension. Therefore, the tensor effectively has no data to reshape. The goal is to remove the dimension with size 0, resulting in a tensor with a shape of `[?,]`, which is a one-dimensional tensor with an unknown number of elements.
 
-This example demonstrates how to reshape a tensor from shape `[?, 0]` to `[?,]` when using `tf.gather` and `tf.where` in TensorFlow. The issue arises because `tf.where` returns indices, and `tf.gather` uses these indices to gather elements, which can result in unexpected shapes. The solution involves using `tf.boolean_mask` to filter out non-zero values directly.
+### Code Example
+This example demonstrates how to reshape a tensor from shape `[?, 0]` to `[?,]` when using `tf.gather`. The solution involves using `tf.boolean_mask` to filter out non-zero values directly.
 
 ```python
 import tensorflow as tf
@@ -325,18 +327,20 @@ filtered_tensor = tf.boolean_mask(src, src != 0)
 # Print the result
 print(filtered_tensor.numpy())
 ```
-
-### Related YouTube Tutorials
-<a href="https://www.youtube.com/watch?v=WLtkPIrCs9Y" target="_blank">TensorFlow fundamentals: What are tensors in TensorFlow.js?</a>
-
-<a href="https://www.youtube.com/watch?v=ukBG9ALd8T8" target="_blank">Use TensorFlow reshape To Change The Shape Of A Tensor - TensorFlow Tutorial</a>
-
-
 ### Related Stack Overflow Posts
-<a href="https://stackoverflow.com/questions/36764791/in-tensorflow-how-to-use-tf-gather-for-the-last-dimension" target="_blank">In Tensorflow, how to use tf.gather() for the last dimension?</a>
+Additional information to obtain knowledge needed to address the [**issue**](#target) related to this API.
 
-<a href="https://stackoverflow.com/questions/42194051/filter-out-non-zero-values-in-a-tensor" target="_blank">Filter out non-zero values in a tensor</a>
+- <a href="https://stackoverflow.com/questions/36764791/in-tensorflow-how-to-use-tf-gather-for-the-last-dimension" target="_blank">In Tensorflow, how to use tf.gather() for the last dimension?</a>
 
-<a href="https://stackoverflow.com/questions/62092075/tensorflow-2-0-shape-inference-with-reshape-returns-none-dimension" target="_blank">Tensorflow 2.0: Shape inference with Reshape returns None dimension</a>
+ - <a href="https://stackoverflow.com/questions/42194051/filter-out-non-zero-values-in-a-tensor" target="_blank">Filter out non-zero values in a tensor</a>
 
-<a href="https://stackoverflow.com/questions/37868935/tensorflow-reshape-tensor" target="_blank">Tensorflow reshape tensor</a>
+ - <a href="https://stackoverflow.com/questions/62092075/tensorflow-2-0-shape-inference-with-reshape-returns-none-dimension" target="_blank">Tensorflow 2.0: Shape inference with Reshape returns None dimension</a>
+
+ ### Related YouTube Tutorials
+Video tutorials to learn concepts related to the [**issue**](#target) with this API.
+
+- <a href="https://www.youtube.com/watch?v=WLtkPIrCs9Y" target="_blank">TensorFlow fundamentals: What are tensors in TensorFlow.js?</a>
+
+- <a href="https://www.youtube.com/watch?v=ukBG9ALd8T8" target="_blank">Use TensorFlow reshape To Change The Shape Of A Tensor - TensorFlow Tutorial</a>
+
+</div>

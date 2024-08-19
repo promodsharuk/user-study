@@ -22,13 +22,13 @@
         <div class="container-main">
             <ul class="flex mb-4 tab-header">
                 <li>
-                    <button type="button" class="tabs">
+                    <button type="button" class="tabs clicked" id="docButton">
                         <span id="code"></span>
                         Official API Documentation
                     </button>
                 </li>
                 <li>
-                    <button type="button" class="tabs">
+                    <button type="button" class="tabs light-blue-bg" id="augmentedButton">
                         Augmented API Documentation
                     </button>
                 </li>
@@ -126,6 +126,17 @@
 </body>
 
 <script>
+
+    document.querySelectorAll('.tabs').forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove 'clicked' class from all buttons
+            document.querySelectorAll('.tabs').forEach(btn => btn.classList.remove('clicked'));
+            
+            // Add 'clicked' class to the clicked button
+            this.classList.add('clicked');
+        });
+    });
+
     // const code = localStorage.getItem('code');
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');

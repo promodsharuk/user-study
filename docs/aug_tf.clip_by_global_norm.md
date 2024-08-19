@@ -1,5 +1,3 @@
-description: Clips values of multiple tensors by the ratio of the sum of their norms.
-
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.clip_by_global_norm" />
 <meta itemprop="path" content="Stable" />
@@ -164,16 +162,19 @@ On the difficulty of training Recurrent Neural Networks:
 
 </div>
 
-<div style="border: 1px solid #ccc; padding: 5px; float: right; width: 34%; margin-left: 5px;">
+<div style="border: 1px solid #ccc; padding: 5px; float: right; width: 34%; margin-left: 5px; background-color: #e6ffe6;">
   
-# Augmented Content
-### Question: Encountering "None values not supported" error when using tf.clip_by_global_norm?
+# What You Need to Know !
+<span id="target"></span>
+**Issue:** Encountering `None values not supported` error when using tf.clip_by_global_norm.
 
+### Explanation
 `None` Values in `tf.clip_by_global_norm` issue encountered when using `tf.clip_by_global_norm` in TensorFlow, specifically regarding the handling of `None` values within the list of tensors to be clipped. 
 
 To address this, it is important to ensure that the list of gradients passed to `tf.clip_by_global_norm` does not contain `None` values. This can be achieved by manually filtering out `None` values from the list of gradients before passing it to the function. This step ensures that only valid tensors are included in the clipping operation, thereby preventing the `ValueError`.
 
-
+### Code Example
+This example demonstrates how to handle None values in `tf.clip_by_global_norm`. The following code initializes the variables correctly and applies gradient clipping while handling `None` values.
 ```python
 import tensorflow as tf
 
@@ -197,15 +198,15 @@ def compute_and_apply_gradients():
 # Perform computation and gradient application (no session needed)
 compute_and_apply_gradients()
 ```
-
-### Related YouTube Tutorials
-<a href="https://www.youtube.com/watch?v=KrQp1TxTCUY" target="_blank">Gradient Clipping for Neural Networks | Deep Learning Fundamentals</a>
-
-
 ### Related Stack Overflow Posts
+Additional information to obtain knowledge needed to address the [**issue**](#target) related to this API.
 <a href="https://stackoverflow.com/questions/36498127/how-to-apply-gradient-clipping-in-tensorflow" target="_blank">How to apply gradient clipping in TensorFlow?</a>
 
 <a href="https://stackoverflow.com/questions/49987839/how-to-handle-none-in-tf-clip-by-global-norm" target="_blank">How to handle None in tf.clip_by_global_norm?</a>
+
+### Related YouTube Tutorials
+Video tutorials to learn concepts related to the [**issue**](#target) with this API.
+- <a href="https://www.youtube.com/watch?v=KrQp1TxTCUY" target="_blank">Gradient Clipping for Neural Networks | Deep Learning Fundamentals</a>
 
 </div>
 
