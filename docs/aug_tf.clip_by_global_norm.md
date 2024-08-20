@@ -164,7 +164,7 @@ On the difficulty of training Recurrent Neural Networks:
 
 <div style="border: 1px solid #ccc; padding: 5px; float: right; width: 34%; margin-left: 5px; background-color: #e6ffe6;">
   
-# What You Need to Know !
+# You might need to know !
 <span id="target"></span>
 **Issue:** Encountering `None values not supported` error when using tf.clip_by_global_norm.
 

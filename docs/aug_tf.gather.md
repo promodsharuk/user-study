@@ -301,7 +301,7 @@ A `Tensor`. Has the same type as `params`.
 
 <div style="border: 1px solid #ccc; padding: 5px; float: right; width: 34%; margin-left: 5px; background-color: #e6ffe6;">
   
-# What You Need to Know !
+# You might need to know !
 <span id="target"></span>
 **Issue:** How to reshape a tensor from shape `[?, 0]` to `[?,]` when using `tf.gather`.
 
