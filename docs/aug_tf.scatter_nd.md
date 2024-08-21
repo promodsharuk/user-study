@@ -212,11 +212,11 @@ print(result.numpy()) # .numpy() converts the tensor to a numpy array for printi
 
 ### Related Stack Overflow Posts
 Additional information to obtain knowledge needed to address the [**issue**](#target) related to this API.
-- <a href="https://stackoverflow.com/questions/56969703/how-to-use-tf-scatter-nd-with-multi-dimensional-tensors" target="_blank">How to apply gradient clipping in TensorFlow?</a>
+- <a href="https://stackoverflow.com/questions/56969703/how-to-use-tf-scatter-nd-with-multi-dimensional-tensors" target="_blank">How to use `tf.scatter_nd` with multi-dimensional tensors</a>
 
-- <a href="https://stackoverflow.com/questions/52572275/tensorflow-how-to-interleave-columns-of-two-tensors-e-g-using-tf-scatter-nd" target="_blank">How to handle None in tf.clip_by_global_norm?</a>
+- <a href="https://stackoverflow.com/questions/52572275/tensorflow-how-to-interleave-columns-of-two-tensors-e-g-using-tf-scatter-nd" target="_blank">tensorflow: how to interleave columns of two tensors (e.g. using tf.scatter_nd)?</a>
 
-- <a href="https://stackoverflow.com/questions/56491633/what-is-the-difference-between-tf-scatter-add-and-tf-scatter-nd-when-indices-is" target="_blank">How to handle None in tf.clip_by_global_norm?</a>
+- <a href="https://stackoverflow.com/questions/56491633/what-is-the-difference-between-tf-scatter-add-and-tf-scatter-nd-when-indices-is" target="_blank">What is the difference between tf.scatter_add and tf.scatter_nd when indices is a matrix?</a>
 
 
 </div>
