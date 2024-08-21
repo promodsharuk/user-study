@@ -1,5 +1,3 @@
-description: Just your regular densely-connected NN layer.
-
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.keras.layers.Dense" />
 <meta itemprop="path" content="Stable" />
@@ -9,7 +7,7 @@ description: Just your regular densely-connected NN layer.
 # tf.keras.layers.Dense
 
 <!-- Insert buttons and diff -->
-
+<div style="border: 0px solid #ccc; padding: 5px; float: left; width: 63%;">
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
   <a target="_blank" href="https://github.com/keras-team/keras/tree/v2.15.0/keras/layers/core/dense.py#L33-L301">
@@ -19,7 +17,7 @@ description: Just your regular densely-connected NN layer.
 </td>
 </table>
 
-<div style="border: 0px solid #ccc; padding: 5px; float: left; width: 65%;">
+
 
 Just your regular densely-connected NN layer.
 
@@ -204,19 +202,19 @@ the output would have shape `(batch_size, units)`.
 </div>
 
 
-<div style="border: 1px solid #ccc; padding: 5px; float: right; width: 34%; margin-left: 5px;">
+<div style="border: 1px solid #ccc; padding: 5px; float: right; width: 34%; margin-left: 5px; background-color: #e6ffe6;">
   
-# Augmented Content
+# You might need to know !
+<span id="target"></span>
+**Issue:** How does `tf.keras.layers.Dense` handle kernels for inputs with rank greater than 2?
 
-### Question: How does tf.keras.layers.Dense handle kernels for inputs with rank greater than 2?
-
+### Explanation
 When using the `tf.keras.layers.Dense` layer with inputs that have a rank greater than 2, the layer computes the dot product between the inputs and the kernel along the last axis of the inputs and axis 0 of the kernel. For instance, if the input has dimensions `(batch_size, d0, d1)`, a kernel with shape `(d1, units)` is created. This kernel operates along axis 2 of the input, on every sub-tensor of shape `(1, 1, d1)`, resulting in an output shape of `(batch_size, d0, units)`.
 
-For inputs with a rank greater than 2, only one kernel is created, and this same kernel is applied to all slices of the second dimension. Consequently, the outputs for different indices of the second dimension are not independent of each other, especially during training.
+For inputs with a rank greater than 2, only one kernel is created, and this same kernel is applied to all slices of the second dimension. Consequently, the outputs for different indices of the second dimension are not independent of each other, especially during training. To achieve independence across different indices of the second dimension, you would need to define a custom Keras layer. This custom layer would involve creating a stack of kernels instead of a single kernel and performing the specified tensor multiplication using `tf.einsum`.
 
-To achieve independence across different indices of the second dimension, you would need to define a custom Keras layer. This custom layer would involve creating a stack of kernels instead of a single kernel and performing the specified tensor multiplication using `tf.einsum`.
-
-
+### Code Example
+Below is a code example on how to create a custom keras layer.
 ```python
 import tensorflow as tf
 from tensorflow.keras import layers
@@ -257,19 +255,20 @@ output_data = model(input_data)
 print(output_data)
 ```
 
-### Related YouTube Tutorials
-<a href="https://www.youtube.com/watch?v=oJ1i2c1KxKk" target="_blank">Python Tutorial: Keras input and dense layers</a>
-
-<a href="https://www.youtube.com/watch?v=lor2LnEVn8M" target="_blank">[TensorFlow 2 Deep Learning] Dense Layer</a>
-
-<a href="https://www.youtube.com/watch?v=kyktbJpg2mU" target="_blank">[Sequential Model, Dense Layer, and Model Compile in Keras Deep Learning</a>
-
-
 ### Related Stack Overflow Posts
-<a href="https://stackoverflow.com/questions/68984841/how-can-i-understand-the-kernel-of-tf-keras-layers-dense-for-rank-2" target="_blank">How can I understand the kernel of tf.keras.layers.Dense for rank >2</a>
+Additional information to obtain knowledge needed to address the [**issue**](#target) related to this API.
+- <a href="https://stackoverflow.com/questions/68984841/how-can-i-understand-the-kernel-of-tf-keras-layers-dense-for-rank-2" target="_blank">How can I understand the kernel of tf.keras.layers.Dense for rank >2</a>
 
-<a href="https://stackoverflow.com/questions/52089601/keras-dense-layers-input-is-not-flattened" target="_blank">Keras Dense layer's input is not flattened</a>
+- <a href="https://stackoverflow.com/questions/52089601/keras-dense-layers-input-is-not-flattened" target="_blank">Keras Dense layer's input is not flattened</a>
 
-<a href="https://stackoverflow.com/questions/63507023/how-to-make-a-keras-dense-layer-deal-with-3d-tensor-as-input-for-this-softmax-fu" target="_blank">How to make a Keras Dense Layer deal with 3D tensor as input for this Softmax Fully Connected Layer?</a>
+- <a href="https://stackoverflow.com/questions/63507023/how-to-make-a-keras-dense-layer-deal-with-3d-tensor-as-input-for-this-softmax-fu" target="_blank">How to make a Keras Dense Layer deal with 3D tensor as input for this Softmax Fully Connected Layer?</a>
 
+
+### Related YouTube Tutorials
+Video tutorials to learn concepts related to the [**issue**](#target) with this API.
+- <a href="https://www.youtube.com/watch?v=oJ1i2c1KxKk" target="_blank">Python Tutorial: Keras input and dense layers</a>
+
+- <a href="https://www.youtube.com/watch?v=lor2LnEVn8M" target="_blank">[TensorFlow 2 Deep Learning] Dense Layer</a>
+
+- <a href="https://www.youtube.com/watch?v=kyktbJpg2mU" target="_blank">[Sequential Model, Dense Layer, and Model Compile in Keras Deep Learning</a>
 </div>

@@ -13,7 +13,7 @@
 
 <a target="_blank" class="external" href="/code/stable/tensorflow/python/ops/array_ops.py">View source</a>
 
-<div style="border: 0px solid #ccc; padding: 5px; float: left; width: 65%;">
+<div style="border: 0px solid #ccc; padding: 5px; float: left; width: 63%;">
 Gather slices from params axis `axis` according to indices. (deprecated arguments)
 
 

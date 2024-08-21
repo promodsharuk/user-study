@@ -1,5 +1,3 @@
-description: Just your regular densely-connected NN layer.
-
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.keras.layers.Dense" />
 <meta itemprop="path" content="Stable" />

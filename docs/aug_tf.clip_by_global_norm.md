@@ -13,7 +13,7 @@
 
 <a target="_blank" class="external" href="/code/stable/tensorflow/python/ops/clip_ops.py">View source</a>
 
-<div style="border: 0px solid #ccc; padding: 5px; float: left; width: 65%;">
+<div style="border: 0px solid #ccc; padding: 5px; float: left; width: 63%;">
 
 Clips values of multiple tensors by the ratio of the sum of their norms.
 
